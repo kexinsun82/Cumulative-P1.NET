@@ -1,6 +1,4 @@
 /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.GeneratedMSBuildEditorConfig.editorconfig
-/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.AssemblyInfoInputs.cache
-/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.AssemblyInfo.cs
 /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.csproj.CoreCompileInputs.cache
 /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.MvcApplicationPartsAssemblyInfo.cache
 /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/obj/Debug/net8.0/CumulativePart1.RazorAssemblyInfo.cache
