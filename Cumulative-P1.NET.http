@@ -1,0 +1,6 @@
+@Cumulative_P1.NET_HostAddress = http://localhost:5025
+
+GET {{Cumulative_P1.NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

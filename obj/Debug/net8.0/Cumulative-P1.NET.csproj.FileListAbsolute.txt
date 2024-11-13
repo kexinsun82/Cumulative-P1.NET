@@ -1,0 +1,10 @@
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.csproj.AssemblyReference.cache
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.AssemblyInfoInputs.cache
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.AssemblyInfo.cs
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.csproj.CoreCompileInputs.cache
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.MvcApplicationPartsAssemblyInfo.cs
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.MvcApplicationPartsAssemblyInfo.cache
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.RazorAssemblyInfo.cache
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.RazorAssemblyInfo.cs
+/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/obj/Debug/net8.0/Cumulative-P1.NET.sourcelink.json

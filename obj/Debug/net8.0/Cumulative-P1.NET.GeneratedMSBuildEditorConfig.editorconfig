@@ -1,0 +1,47 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Cumulative_P1.NET
+build_property.RootNamespace = Cumulative_P1.NET
+build_property.ProjectDir = /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL0hvbWUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL0hvbWUvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL1NoYXJlZC9FcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL1NoYXJlZC9fVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL19WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL19WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Q3VtdWxhdGl2ZVBhcnQxL1ZpZXdzL1NoYXJlZC9fTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-zebozs3uda

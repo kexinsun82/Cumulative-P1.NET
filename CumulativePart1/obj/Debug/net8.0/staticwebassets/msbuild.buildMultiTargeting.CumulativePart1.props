@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/CumulativePart1.props" />
+</Project>
