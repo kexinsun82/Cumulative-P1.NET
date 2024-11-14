@@ -1,5 +1,6 @@
 using System;
-using School.Models;
+using CumulativePart1.Controllers;
+using CumulativePart1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 // Database
 builder.Services.AddScoped<SchoolDbContext>();
+// API for now, but should be added as separate Teacher Service
+builder.Services.AddScoped<TeacherAPIController>();
 
 var app = builder.Build();
 

@@ -1,15 +1,30 @@
+using CumulativePart1.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace CumulativePart1.Controllers
 {
     public class TeacherPageController : Controller
     {
         // GET: TeacherPageController
-        public ActionResult Index()
+        private readonly TeacherAPIController _api;
+
+        public TeacherPageController(TeacherAPIController api)
         {
-            return View();
+            _api = api;
         }
 
+        // GET: TeacherPage/List
+        public IActionResult List()
+        {
+            List<Teacher> Teachers = _api.ListTeachersInfo();
+            return View(Teachers);
+        }
+
+        // GET: TeacherPage/Show/{id}
+        public IActionResult Show(int id)
+        {
+            Teacher SelectedTeacher = _api.FindTeacher(id);
+            return View(SelectedTeacher);
+        }
     }
 }

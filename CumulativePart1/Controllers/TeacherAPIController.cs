@@ -1,11 +1,10 @@
-using School.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using System;
 using CumulativePart1.Models;
 
-namespace School.Controllers
+namespace CumulativePart1.Controllers
 {
     [Route("api/Teacher")]
     [ApiController]
@@ -22,7 +21,7 @@ namespace School.Controllers
         /// This method will return information on all teachers
         /// </summary>
         /// <example>
-        /// GET api/
+        /// GET api/Teacher/ListTeachersInfo -> [{"teacherId": 1, "teacherFName": "Alexander", "teacherLName": "Bennett", "employeeNumber": "T378", "hireDate": "2016-08-05T00:00:00", "salary": 55.3  },..]
         /// </example>
         /// <returns>
         /// A list of teacher informations
@@ -91,7 +90,10 @@ namespace School.Controllers
         /// Returns a teacher in the database by their ID
         /// </summary>
         /// <example>
-        /// GET api/Teacher/FindTeacher/1 -> {}
+        /// GET api/Teacher/FindTeacher/1 -> {"teacherId": 1, "teacherFName": "Alexander", "teacherLName": "Bennett", "employeeNumber": "T378","hireDate": "2016-08-05T00:00:00", "salary": 55.3}
+        /// ------
+        /// Error: a teacher that does not exist
+        /// GET api/Teacher/FindTeacher/50 -> {"teacherId": 0,  "teacherFName": null,  "teacherLName": null,  "employeeNumber": null,  "hireDate": "0001-01-01T00:00:00",  "salary": 0}
         /// </example>
         /// <returns>
         /// A matching teacher object by its ID. Empty object if teacher not found

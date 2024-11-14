@@ -1,6 +1,7 @@
 using MySql.Data.MySqlClient;
 
-namespace School.Models
+namespace CumulativePart1.Models
+
 {
     public class SchoolDbContext
     {
