@@ -13,17 +13,24 @@ namespace CumulativePart1.Controllers
             _api = api;
         }
 
-        // GET: TeacherPage/List
+        // GET: Teacher/List
         public IActionResult List()
         {
             List<Teacher> Teachers = _api.ListTeachersInfo();
             return View(Teachers);
         }
 
-        // GET: TeacherPage/Show/{id}
+        // GET: Teacher/Show/{id}
         public IActionResult Show(int id)
         {
             Teacher SelectedTeacher = _api.FindTeacher(id);
+
+            if (SelectedTeacher == null || SelectedTeacher.TeacherId == 0)
+            {
+            TempData["ErrorMessage"] = "Teacher not found, please enter a valid ID.";
+            return RedirectToAction("List");
+            }
+
             return View(SelectedTeacher);
         }
     }

@@ -1,5 +1,12 @@
 ﻿@model IEnumerable<CumulativePart1.Models.Teacher>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 @foreach (CumulativePart1.Models.Teacher Teacher in Model)
 {
     <div>

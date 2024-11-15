@@ -1,5 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model CumulativePart1.Models.Teacher
+<h1>@Model.TeacherFName @Model.TeacherLName</h1>
+<p>Employee Number: @Model.EmployeeNumber</p>
+<p>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</p>
+<p>Salary: @Model.Salary</p>
