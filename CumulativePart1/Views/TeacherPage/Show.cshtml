@@ -1,5 +1,45 @@
 ﻿@model CumulativePart1.Models.Teacher
-<h1>@Model.TeacherFName @Model.TeacherLName</h1>
+@* <h1>@Model.TeacherFName @Model.TeacherLName</h1>
 <p>Employee Number: @Model.EmployeeNumber</p>
 <p>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</p>
-<p>Salary: @Model.Salary</p>
+<p>Salary: @Model.Salary</p> *@
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teacher Info</title>
+        <style>
+            .title {
+                text-align: center; 
+                margin-bottom: 40px;
+            }
+
+            .Info-container {
+                text-align: center;
+                background-color: #d6e2fb;
+                gap: 20px;
+                padding: 50px 100px 280px 100px;
+                border-radius: 10px;
+            }
+
+            .Info-container {
+              text-align: left;
+            }
+
+            h2 {
+              font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+      <div class="Info-container">
+        <h1 class="title">@Model.TeacherFName @Model.TeacherLName</h1>
+        <div class="inner">
+          <h2>Employee Number: @Model.EmployeeNumber</h2>
+          <h2>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</h2>
+          <h2>Salary: @Model.Salary</h2>
+        </div>
+      </div>
+    </body>
+</html>

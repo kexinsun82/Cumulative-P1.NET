@@ -15,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<SchoolDbContext>();
 // API for now, but should be added as separate Teacher Service
 builder.Services.AddScoped<TeacherAPIController>();
+builder.Services.AddScoped<StudentAPIController>();
+builder.Services.AddScoped<CourseAPIController>();
 
 var app = builder.Build();
 

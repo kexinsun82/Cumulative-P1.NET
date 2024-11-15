@@ -13,14 +13,14 @@ namespace CumulativePart1.Controllers
             _api = api;
         }
 
-        // GET: Teacher/List
+        // GET: api/TeacherPage/List
         public IActionResult List()
         {
             List<Teacher> Teachers = _api.ListTeachersInfo();
             return View(Teachers);
         }
 
-        // GET: Teacher/Show/{id}
+        // GET: api/Teacher/Show/{id}
         public IActionResult Show(int id)
         {
             Teacher SelectedTeacher = _api.FindTeacher(id);

@@ -1,15 +1,52 @@
 ﻿@model IEnumerable<CumulativePart1.Models.Teacher>
 
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teacher List</title>
+        <style>
+            .title {
+                text-align: center; 
+                margin-bottom: 40px;
+            }
 
-@foreach (CumulativePart1.Models.Teacher Teacher in Model)
-{
-    <div>
-        <a href="/TeacherPage/Show/@Teacher.TeacherId">@Teacher.TeacherFName @Teacher.TeacherLName</a>
-    </div>
-}
+            .teacher-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .teacher-card {
+                background-color: #d6e2fb;
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 class="title">Teacher List</h1>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        <div class="teacher-container">
+            @foreach (var Teacher in Model)
+            {
+                <div class="teacher-card">
+                    <h2>@Teacher.TeacherFName @Teacher.TeacherLName</h2>
+                    <p><strong>Employee Number:</strong> @Teacher.EmployeeNumber</p>
+                    <p><strong>Hire Date:</strong> @Teacher.HireDate.ToString("yyyy-MM-dd")</p>
+                    <p><strong>Salary:</strong> $@Teacher.Salary</p>
+                    <a href="/TeacherPage/Show/@Teacher.TeacherId">View More</a>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+
+
+

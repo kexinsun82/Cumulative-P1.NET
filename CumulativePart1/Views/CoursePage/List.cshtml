@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CumulativePart1.Models.Course>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@foreach (CumulativePart1.Models.Course Course in Model)
+{
+    <div>
+        <a href="/CoursePage/Show/@Course.CourseId">@Course.CourseCode @Course.CourseName</a>
+    </div>
+}
