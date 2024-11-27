@@ -138,5 +138,41 @@ namespace CumulativePart1.Controllers
             // Return the teacher's info by ID
             return SelectedTeacher;
         }
+
+        [HttpPost(template: "AddTeacher")]
+        public int AddTeacher([FromBody] Teacher NewTeacher)
+        {
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // SQL query to insert the new teacher
+                string query = @"
+                    INSERT INTO teachers (teacherfname, teacherlname, employeenumber, hiredate, salary)
+                    VALUES (@TeacherFName, @TeacherLName, @EmployeeNumber, @HireDate, @Salary);";
+
+                // Create a MySQL command
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+
+                // Bind parameters to prevent SQL injection
+                Command.Parameters.AddWithValue("@TeacherFName", NewTeacher.TeacherFName);
+                Command.Parameters.AddWithValue("@TeacherLName", NewTeacher.TeacherLName);
+                Command.Parameters.AddWithValue("@EmployeeNumber", NewTeacher.EmployeeNumber);
+                Command.Parameters.AddWithValue("@HireDate", NewTeacher.HireDate);
+                Command.Parameters.AddWithValue("@Salary", NewTeacher.Salary);
+
+                // Execute the insert query
+                Command.ExecuteNonQuery();
+
+                // Get the ID of the last inserted row
+                int TeacherId = Convert.ToInt32(Command.LastInsertedId);
+
+                Connection.Close();
+
+                // Return the generated TeacherId
+                return TeacherId;
+            }
+        }
     }
 }
