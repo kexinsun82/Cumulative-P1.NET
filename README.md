@@ -27,6 +27,16 @@ This cumulative project involves building a **Minimum Viable Product (MVP)** on 
 
 ---
 
+# **Cumulative Part 2**
+
+This cumulative project involves building a **Minimum Viable Product (MVP)** on the Teachers table of the provided School Database using ASP.NET Core Web API and MVC. Part 1 is the **ADD and DELETE** functionality.
+
+---
+
+## **Features**
+
+---
+
 ## **Technologies Used**
 
 - **Framework**: ASP.NET Core MVC  
