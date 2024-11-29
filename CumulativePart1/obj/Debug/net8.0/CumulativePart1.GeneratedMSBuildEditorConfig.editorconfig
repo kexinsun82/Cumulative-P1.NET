@@ -42,8 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/StudentPage/DeleteConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudFBhZ2UvRGVsZXRlQ29uZmlybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/StudentPage/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudFBhZ2UvTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/StudentPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudFBhZ2UvTmV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/StudentPage/Show.cshtml]

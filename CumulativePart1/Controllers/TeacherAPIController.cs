@@ -147,7 +147,7 @@ namespace CumulativePart1.Controllers
         /// </returns>
         /// <param name="NewTeacher">The teacher object to add, see example</param>
         /// <example>
-        /// POST : api/TeacherAPI/AddArticle
+        /// POST : api/TeacherAPI/AddTeacher
         /// Header: Content-Type: application/json
         /// Data: {"teacherId": 14,"teacherFName": "Kelly","teacherLName": "Sun","employeeNumber": "S4566","hireDate": "2024-11-30","salary": 200}
         /// -> 

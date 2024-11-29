@@ -1,4 +1,5 @@
 ﻿@model CumulativePart1.Models.Student
 <h1>@Model.StudentFName @Model.StudentLName</h1>
+<a href="/StudentPage/DeleteConfirm/@Model.StudentId">Delete</a>
 <p>Student Number: @Model.StudentNumber</p>
 <p>Enrol Date: @Model.EnrolDate.ToString("yyyy-M-d")</p>

@@ -129,5 +129,82 @@ namespace CumulativePart1.Controllers
             //Return the final list of student names
             return SelectedStudent;
         }
+
+        /// <summary>
+        /// This endpoint will receive Student Data and add the Student to the database
+        /// </summary>
+        /// <returns>
+        /// The Student ID that was inserted
+        /// </returns>
+        /// <param name="NewStudent">The Student object to add, see example</param>
+        /// <example>
+        /// POST : api/StudentAPI/AddStudent
+        /// Header: Content-Type: application/json
+        /// Data: {"studentId": 0,"studentFName": "Kexin","studentLName": "Sun","studentNumber": "n06799","enrolDate": "2024-11-29"}
+        /// -> 
+        /// "35"
+        /// </example>
+        [HttpPost(template: "AddStudent")]
+        public int AddStudent([FromBody] Student NewStudent)
+        {
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // SQL query to insert the new Student
+                string query = @"
+                    INSERT INTO Students (studentfname, studentlname, studentnumber, enroldate)
+                    VALUES (@StudentFName, @StudentLName, @StudentNumber, @EnrolDate);";
+
+                // Create a MySQL command
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+
+                // Bind parameters to prevent SQL injection
+                Command.Parameters.AddWithValue("@StudentFName", NewStudent.StudentFName);
+                Command.Parameters.AddWithValue("@StudentLName", NewStudent.StudentLName);
+                Command.Parameters.AddWithValue("@StudentNumber", NewStudent.StudentNumber);
+                Command.Parameters.AddWithValue("@EnrolDate", NewStudent.EnrolDate);
+
+                // Execute the insert query
+                Command.ExecuteNonQuery();
+
+                // Get the ID of the last inserted row
+                return Convert.ToInt32(Command.LastInsertedId);
+            }
+                return 0;
+
+        }
+
+        /// <summary>
+        /// Receives an ID and deletes the Student from the system
+        /// </summary>
+        /// <param name="StudentId">The Student Id primary key to delete</param>
+        /// <returns>
+        /// The number of Students deleted
+        /// </returns>
+        /// <example>
+        /// DELETE api/StudentAPI/DeleteStudent/35 -> 1
+        /// DELETE api/StudentAPI/DeleteStudent/36 -> 0
+        /// </example>
+        [HttpDelete(template:"DeleteStudent/{StudentId}")]
+        public int DeleteStudent(int StudentId)
+        {
+
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+                string query = "delete from Students where studentid=@id";
+
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+                Command.Parameters.AddWithValue("@id", StudentId);
+                
+
+                
+                return Command.ExecuteNonQuery();
+            }
+        }
+
     }
 }
