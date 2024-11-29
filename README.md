@@ -51,7 +51,7 @@ This cumulative project involves building a **Minimum Viable Product (MVP)** on 
 
 - **Framework**: ASP.NET Core MVC  
 - **Language**: C#  
-- **Database**: SQL Server  
+- **Database**: MySQL  
 - **Testing Tools**: Swagger for API testing and documentation  
 - **Styling**: Plain CSS for custom styling  
 
