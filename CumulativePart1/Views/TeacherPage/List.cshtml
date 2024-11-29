@@ -23,17 +23,33 @@
                 border-radius: 10px;
             }
 
+            .alert-green {
+                background-color: rgb(187, 213, 147);
+            }
+            .alert-red {
+                background-color: rgb(213, 147, 147);
+            }
+
         </style>
     </head>
     <body>
         <h1 class="title">Teacher List</h1>
         <a href="/TeacherPage/New">Add a New Teacher</a>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-green">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <!--  Error Message -->
         @if (TempData["ErrorMessage"] != null)
         {
-            <div class="alert alert-danger">
+            <div class="alert alert-red">
                 @TempData["ErrorMessage"]
             </div>
         }
+
         <div class="teacher-container">
             @foreach (var Teacher in Model)
             {

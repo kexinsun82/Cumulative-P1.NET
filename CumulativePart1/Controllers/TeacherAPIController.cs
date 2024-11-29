@@ -210,9 +210,9 @@ namespace CumulativePart1.Controllers
                 Command.CommandText = query;
                 Command.Parameters.AddWithValue("@id", TeacherId);
                 
-
+                int RowsAffected = Command.ExecuteNonQuery();
                 
-                return Command.ExecuteNonQuery();
+                return RowsAffected;
             }
         }
 

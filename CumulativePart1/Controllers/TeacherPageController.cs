@@ -90,7 +90,16 @@ namespace CumulativePart1.Controllers
         {
             int RowsAffected = _api.DeleteTeacher(id);
 
-            //todo: log rows affected
+            if (RowsAffected > 0)
+            {
+                // Success message
+                TempData["SuccessMessage"] = "Teacher deleted successfully."; 
+            }
+            else
+            {
+                // Error message
+                TempData["ErrorMessage"] = "Teacher not found or could not be deleted."; 
+            }
 
             //direct to Views/TeacherPage/List.cshtml
             return RedirectToAction("List");
