@@ -143,7 +143,7 @@ namespace CumulativePart1.Controllers
         /// This endpoint will receive Teacher Data and add the teacher to the database
         /// </summary>
         /// <returns>
-        /// The teacher ID that was inserted
+        /// The inserted Teacher Id from the database is successful. 0 is Unsuccessful.
         /// </returns>
         /// <param name="NewTeacher">The teacher object to add, see example</param>
         /// <example>
@@ -191,7 +191,7 @@ namespace CumulativePart1.Controllers
         /// </summary>
         /// <param name="TeacherId">The teacher Id primary key to delete</param>
         /// <returns>
-        /// The number of teachers deleted
+        /// 1 if successful. 0 if Unsuccessful
         /// </returns>
         /// <example>
         /// DELETE api/TeacherAPI/DeleteTeacher/12 -> 1

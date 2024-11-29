@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/CoursePage/DeleteConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlUGFnZS9EZWxldGVDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/CoursePage/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlUGFnZS9MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/CoursePage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlUGFnZS9OZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/kellysun/Desktop/Humber-GitHub/Cumulative-P1.NET/CumulativePart1/Views/CoursePage/Show.cshtml]

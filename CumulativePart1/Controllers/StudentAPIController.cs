@@ -134,7 +134,7 @@ namespace CumulativePart1.Controllers
         /// This endpoint will receive Student Data and add the Student to the database
         /// </summary>
         /// <returns>
-        /// The Student ID that was inserted
+        /// The inserted Student Id from the database is successful. 0 is Unsuccessful.
         /// </returns>
         /// <param name="NewStudent">The Student object to add, see example</param>
         /// <example>
@@ -181,7 +181,7 @@ namespace CumulativePart1.Controllers
         /// </summary>
         /// <param name="StudentId">The Student Id primary key to delete</param>
         /// <returns>
-        /// The number of Students deleted
+        /// 1 if successful. 0 if Unsuccessful
         /// </returns>
         /// <example>
         /// DELETE api/StudentAPI/DeleteStudent/35 -> 1

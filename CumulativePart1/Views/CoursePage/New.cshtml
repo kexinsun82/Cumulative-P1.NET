@@ -1,0 +1,33 @@
+﻿@model CumulativePart1.Models.Course
+
+<h1>Add a New Course</h1>
+
+<form method="POST" action="/CoursePage/Create">
+    <div>
+        <label for="CourseId">Course Id:</label>
+        <input type="text" name="CourseId" id="CourseId" />
+    </div>
+    <div>
+        <label for="CourseCode">Course Code:</label>
+        <input type="text" name="CourseCode" id="CourseCode" />
+    </div>
+    <div>
+        <label for="TeacherID">Teacher ID:</label>
+        <input type="text" name="TeacherID" id="TeacherID" />
+    </div>
+    <div>
+        <label for="StartDate">Start Date:</label>
+        <input type="date" name="StartDate" id="StartDate" />
+    </div>
+    <div>
+        <label for="FinishDate">Finish Date:</label>
+        <input type="date" name="FinishDate" id="FinishDate" />
+    </div>
+    <div>
+        <label for="CourseName">Course Name:</label>
+        <input type="text" name="CourseName" id="CourseName" />
+    </div>
+    <div>
+        <input type="submit" value="Add a Course"/>
+    </div>
+</form>

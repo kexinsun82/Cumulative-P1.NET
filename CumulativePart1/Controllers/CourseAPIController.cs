@@ -1,8 +1,7 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CumulativePart1.Models;
-using System;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace CumulativePart1.Controllers
 {
@@ -48,9 +47,9 @@ namespace CumulativePart1.Controllers
                     while (ResultSet.Read())
                     {
                         // for each results, gather the Courses info
-                        int ID = Convert.ToInt32(ResultSet["courseid"]);
+                        int CourseId = Convert.ToInt32(ResultSet["courseid"]);
                         string CourseCode = ResultSet["coursecode"].ToString();
-                        int TeacherID = Convert.ToInt32(ResultSet["teacherid"]);
+                        int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
                         DateTime StartDate = Convert.ToDateTime(ResultSet["startdate"]);
                         DateTime FinishDate = Convert.ToDateTime(ResultSet["finishdate"]);
                         string CourseName = ResultSet["coursename"].ToString();
@@ -58,9 +57,9 @@ namespace CumulativePart1.Controllers
                         //Add the Course Name to the List
                         Course CurrentCourse = new Course()
                         {
-                            CourseId = ID,
+                            CourseId = CourseId,
                             CourseCode = CourseCode,
-                            TeacherID = TeacherID,
+                            TeacherId = TeacherId,
                             StartDate = StartDate,
                             FinishDate = FinishDate,
                             CourseName = CourseName
@@ -110,16 +109,16 @@ namespace CumulativePart1.Controllers
                     while (ResultSet.Read())
                     {
                         //Access Column information by the DB column name as an index
-                        int ID = Convert.ToInt32(ResultSet["courseid"]);
+                        int CourseId = Convert.ToInt32(ResultSet["courseid"]);
                         string CourseCode = ResultSet["coursecode"].ToString();
-                        int TeacherID = Convert.ToInt32(ResultSet["teacherid"]);
+                        int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
                         DateTime StartDate = Convert.ToDateTime(ResultSet["startdate"]);
                         DateTime FinishDate = Convert.ToDateTime(ResultSet["finishdate"]);
                         string CourseName = ResultSet["coursename"].ToString();
 
-                        SelectedCourse.CourseId = ID;
+                        SelectedCourse.CourseId = CourseId;
                         SelectedCourse.CourseCode = CourseCode;
-                        SelectedCourse.TeacherID = TeacherID;
+                        SelectedCourse.TeacherId = TeacherId;
                         SelectedCourse.StartDate = StartDate;
                         SelectedCourse.FinishDate = FinishDate;
                         SelectedCourse.CourseName = CourseName;
@@ -132,5 +131,96 @@ namespace CumulativePart1.Controllers
             //Return the final list of course names
             return SelectedCourse;
         }
+
+        /// <summary>
+        /// This endpoint will receive Course Data and add the Course to the database
+        /// </summary>
+        /// <returns>
+        /// The inserted Author Id from the database is successful. 0 or Duplicate alter is Unsuccessful.
+        /// </returns>
+        /// <param name="CourseInfo">The Course object to add, see example</param>
+        /// <example>
+        /// POST : api/CourseAPI/AddCourse
+        /// Header: Content-Type: application/json
+        /// Data: {"courseId": 18,"courseCode": "HTTP9999","teacherId": 3,"startDate": "2024-11-29","finishDate": "2024-12-29","courseName": "New Course Test4"}'
+        /// -> 
+        /// "18"
+        /// </example>
+        /// <example>
+        /// POST : api/CourseAPI/AddCourse
+        /// Header: Content-Type: application/json
+        /// Data: {"courseId": 18,"courseCode": "HTTP9999","teacherId": 3,"startDate": "2024-11-29","finishDate": "2024-12-29","courseName": "New Course Test4"}'
+        /// -> 
+        /// "Duplicate entry '18' for key 'PRIMARY'"
+        /// </example>
+        [HttpPost(template: "AddCourse")]
+        public int AddCourse([FromBody] Course CourseInfo)
+        {
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+
+                // SQL query to insert the new Course
+                string query = @"
+                    INSERT INTO courses (courseid, coursecode, teacherid, startdate, finishdate, coursename)
+                    VALUES (@CourseId, @CourseCode, @TeacherId, @StartDate, @FinishDate, @CourseName);";
+
+                // Create a MySQL command
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+
+                // Bind parameters to prevent SQL injection
+                Command.Parameters.AddWithValue("@CourseId", CourseInfo.CourseId);
+                Command.Parameters.AddWithValue("@CourseCode", CourseInfo.CourseCode);
+                Command.Parameters.AddWithValue("@TeacherId", CourseInfo.TeacherId);
+                Command.Parameters.AddWithValue("@StartDate", CourseInfo.StartDate);
+                Command.Parameters.AddWithValue("@FinishDate", CourseInfo.FinishDate);
+                Command.Parameters.AddWithValue("@CourseName", CourseInfo.CourseName);
+
+                // Execute the insert query
+                Command.ExecuteNonQuery();
+
+                // Get the ID of the last inserted row —— Didn't work
+                // return Convert.ToInt32(Command.LastInsertedId);
+                // Directly return the provided CourseId
+                return CourseInfo.CourseId;
+            }
+                return 0;
+
+        }
+
+        /// <summary>
+        /// Receives an ID and deletes the Course from the system
+        /// </summary>
+        /// <param name="CourseId">The Course Id primary key to delete</param>
+        /// <returns>
+        /// 1 if successful. 0 if Unsuccessful
+        /// </returns>
+        /// <example>
+        /// DELETE api/CourseAPI/DeleteCourse/17 -> 1
+        /// DELETE api/CourseAPI/DeleteCourse/17 -> 0
+        /// DELETE api/CourseAPI/DeleteCourse/-17 -> 0
+        /// </example>
+        [HttpDelete(template:"DeleteCourse/{CourseId}")]
+        public int DeleteCourse(int CourseId)
+        {
+
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+                string query = "delete from courses where courseid=@id";
+
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+                Command.Parameters.AddWithValue("@id", CourseId);
+                
+
+                
+                return Command.ExecuteNonQuery();
+            }
+
+            return 0;
+        }
+
     }
 }

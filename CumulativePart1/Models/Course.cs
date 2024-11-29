@@ -7,7 +7,7 @@ namespace CumulativePart1.Models
 
         public string? CourseCode { get; set; }
 
-        public int TeacherID { get; set; }
+        public int TeacherId { get; set; }
 
         public DateTime StartDate { get; set; }
 

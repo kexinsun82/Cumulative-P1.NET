@@ -7,9 +7,15 @@
     </div>
 }
 
-@foreach (CumulativePart1.Models.Course Course in Model)
+    <div>
+        <a href="/CoursePage/New">Add a New Course</a>
+    </div>
+
+    <br>
+
+@foreach (CumulativePart1.Models.Course CurrentCourse in Model)
 {
     <div>
-        <a href="/CoursePage/Show/@Course.CourseId">@Course.CourseCode @Course.CourseName</a>
+        <a href="/CoursePage/Show/@CurrentCourse.CourseId">@CurrentCourse.CourseCode @CurrentCourse.CourseName</a>
     </div>
 }

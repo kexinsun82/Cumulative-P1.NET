@@ -1,5 +1,6 @@
 ﻿@model CumulativePart1.Models.Course
 <h1>@Model.CourseCode @Model.CourseName</h1>
-<p>Teacher ID: @Model.TeacherID</p>
-<p>Start Date: @Model.StartDate.ToString("yyyy-M-d")</p>
-<p>Finish Date: @Model.FinishDate.ToString("yyyy-M-d")</p>
+<p>Teacher ID: @Model.TeacherId</p>
+<p>Start Date: @Model.StartDate</p>
+<p>Finish Date: @Model.FinishDate</p>
+<a href="/CoursePage/DeleteConfirm/@Model.CourseId">Delete Course</a>
