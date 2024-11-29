@@ -35,15 +35,13 @@ This cumulative project involves building a **Minimum Viable Product (MVP)** on 
 
 ## **Features**
 
-### **Teacher**
-### **Student**
-### **Course**
-- A WebAPI Controller which allows you to add a teacher(using POST Data).
-- A WebAPI Controller which allows you to delete a teacher.
+### **Teacher** | **Student** | **Course**
+- A WebAPI Controller which allows you to add a teacher/student/course(using POST Data).
+- A WebAPI Controller which allows you to delete a teacher/student/course.
 - An MVC Controller which allows you to route to dynamic pages.
-- A Model which allows you to represent information about a teacher.
-- A View which uses server rendering to display a page that allows for a user to enter a new teacher.
-- A View which uses server rendering to display a “Confirm Delete” page for a teacher from the MySQL Database.
+- A Model which allows you to represent information about a teacher/student/course.
+- A View which uses server rendering to display a page that allows for a user to enter a new teacher/student/course.
+- A View which uses server rendering to display a “Confirm Delete” page for a teacher/student/course from the MySQL Database.
 
 ---
 
