@@ -71,5 +71,29 @@ namespace CumulativePart1.Controllers
             //redirect to /TeacherPage/List/{teacherId}
             return RedirectToAction("List", new { id=TeacherId });
         }
+
+        // GET: /TeacherPage/DeleteConfirm/{id} -> A webpage asking the user if they are sure they want to delete this teacher
+        [HttpGet]
+        public IActionResult DeleteConfirm(int id)
+        {
+            // problem: get the teacher information
+            // given: the teacher id
+            Teacher SelectedTeacher = _api.FindTeacher(id);
+
+            // directs to /Views/TeacherPage/DeleteConfirm.cshtml
+            return View(SelectedTeacher);
+        }
+
+        // POST: TeacherPage/Delete/{id} -> A webpage that lists the teachers
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            int RowsAffected = _api.DeleteTeacher(id);
+
+            //todo: log rows affected
+
+            //direct to Views/TeacherPage/List.cshtml
+            return RedirectToAction("List");
+        }
     }
 }

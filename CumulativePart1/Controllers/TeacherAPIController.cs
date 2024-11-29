@@ -139,6 +139,20 @@ namespace CumulativePart1.Controllers
             return SelectedTeacher;
         }
 
+        /// <summary>
+        /// This endpoint will receive Teacher Data and add the teacher to the database
+        /// </summary>
+        /// <returns>
+        /// The teacher ID that was inserted
+        /// </returns>
+        /// <param name="NewTeacher">The teacher object to add, see example</param>
+        /// <example>
+        /// POST : api/TeacherAPI/AddArticle
+        /// Header: Content-Type: application/json
+        /// Data: {"teacherId": 14,"teacherFName": "Kelly","teacherLName": "Sun","employeeNumber": "S4566","hireDate": "2024-11-30","salary": 200}
+        /// -> 
+        /// "15"
+        /// </example>
         [HttpPost(template: "AddTeacher")]
         public int AddTeacher([FromBody] Teacher NewTeacher)
         {
@@ -166,13 +180,41 @@ namespace CumulativePart1.Controllers
                 Command.ExecuteNonQuery();
 
                 // Get the ID of the last inserted row
-                int TeacherId = Convert.ToInt32(Command.LastInsertedId);
+                return Convert.ToInt32(Command.LastInsertedId);
+            }
+                return 0;
 
-                Connection.Close();
+        }
 
-                // Return the generated TeacherId
-                return TeacherId;
+        /// <summary>
+        /// Receives an ID and deletes the teacher from the system
+        /// </summary>
+        /// <param name="TeacherId">The teacher Id primary key to delete</param>
+        /// <returns>
+        /// The number of teachers deleted
+        /// </returns>
+        /// <example>
+        /// DELETE api/TeacherAPI/DeleteTeacher/12 -> 1
+        /// DELETE api/TeacherAPI/DeleteTeacher/20 -> 0
+        /// </example>
+        [HttpDelete(template:"DeleteTeacher/{TeacherId}")]
+        public int DeleteTeacher(int TeacherId)
+        {
+
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+                string query = "delete from teachers where teacherid=@id";
+
+                MySqlCommand Command = Connection.CreateCommand();
+                Command.CommandText = query;
+                Command.Parameters.AddWithValue("@id", TeacherId);
+                
+
+                
+                return Command.ExecuteNonQuery();
             }
         }
+
     }
 }

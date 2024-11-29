@@ -1,8 +1,4 @@
 ﻿@model CumulativePart1.Models.Teacher
-@* <h1>@Model.TeacherFName @Model.TeacherLName</h1>
-<p>Employee Number: @Model.EmployeeNumber</p>
-<p>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</p>
-<p>Salary: @Model.Salary</p> *@
 
 <!DOCTYPE html>
     <head>
@@ -36,6 +32,7 @@
       <div class="Info-container">
         <h1 class="title">@Model.TeacherFName @Model.TeacherLName</h1>
         <div class="inner">
+          <a href="/TeacherPage/DeleteConfirm/@Model.TeacherId">Delete</a>
           <h2>Employee Number: @Model.EmployeeNumber</h2>
           <h2>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</h2>
           <h2>Salary: @Model.Salary</h2>
