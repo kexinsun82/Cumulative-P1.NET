@@ -225,18 +225,24 @@ namespace CumulativePart1.Controllers
         /// <param name="TeacherId">The primary key of the teacher to update</param>
         /// <param name="UpdateTeacher">The values to update the teacher</param>
         /// <example>
-        /// PUT: TeacherAPI/UpdateTeacher/1
+        /// PUT: TeacherAPI/UpdateTeacher/28
         /// Request Header: Content-Type: application/json
         /// Request Body:
-        /// {}
+        /// {"teacherFName": "Kelly","teacherLName": "Sun","employeeNumber": "HTTP9999","hireDate": "2024-12-30T00:00:00","salary": 100}
         /// ->
-        /// {}
+        /// {"teacherId":28,"teacherFName":"Kelly","teacherLName":"Sun","employeeNumber":"HTTP9999","hireDate":"2024-12-30T00:00:00","salary":100.00}
+        /// </example>
+        /// <example>
+        /// PUT: TeacherAPI/UpdateTeacher/29
+        /// Request Header: Content-Type: application/json
+        /// Request Body:
+        /// {"teacherFName": "Kim","teacherLName": "Lee","employeeNumber":"HTTP8888","hireDate":"2024-11-30T00:00:00","salary":88.00}
+        /// ->
+        /// {"teacherId":29,"teacherFName":"Kim","teacherLName":"Lee","employeeNumber":"HTTP8888","hireDate":"2024-11-30T00:00:00","salary":88.00}
         /// </example>
         [HttpPut(template:"UpdateTeacher/{TeacherId}")]
         public Teacher UpdateTeacher(int TeacherId, [FromBody] Teacher UpdatedTeacher)
         {
-            //Debug.WriteLine($"The teacher Title is : {UpdatedTeacher.teacherTitle}");
-
             string query = "update teachers set teacherfname=@TeacherFName, teacherlname=@TeacherLName, employeenumber=@EmployeeNumber, hiredate=@HireDate,salary=@Salary where teacherid=@id";
 
             using (MySqlConnection Connection = _context.AccessDatabase())

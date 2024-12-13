@@ -105,7 +105,7 @@ namespace CumulativePart1.Controllers
             return RedirectToAction("List");
         }
 
-        // GET: TeacherPage/Edit/1 -> A webpage which asks the user to enter updated teacher information given the original teacher
+        // GET: TeacherPage/Edit/28 -> A webpage which asks the user to enter updated teacher information given the original teacher
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -115,9 +115,7 @@ namespace CumulativePart1.Controllers
 
         }
 
-        // POST: /TeacherPage/Update/101 -> Shows the teacher which we had just updated
-        // Header: Content-Type: application/x-www-form-urlencoded
-        // POST DATA: ?TeacherFName=Kexin&TeacherLName=Sun&Salary=66
+        // POST: /TeacherPage/Update/{id} -> Shows the teacher which updated
         [HttpPost]
         public IActionResult Update(int id, string TeacherFName, string TeacherLName,  string EmployeeNumber, DateTime HireDate, decimal Salary)
         {
