@@ -2,6 +2,13 @@
 
 <h1>Edit the Teacher Information</h1>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div style="background-color: rgb(213, 147, 147);">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 <form method="POST" action="/TeacherPage/Update/@Model.TeacherId">
     <div>
         <label for="TeacherFName">First Name:</label>
@@ -21,7 +28,7 @@
     </div>
     <div>
         <label for="Salary">Salary:</label>
-        <input type="number" name="Salary" id="Salary" value="@Model.Salary" />
+        <input type="number" name="Salary" id="Salary" value="@Model.Salary" step="any" />
     </div>
     <div>
         <input type="submit" value="Update Teacher" />

@@ -119,6 +119,36 @@ namespace CumulativePart1.Controllers
         [HttpPost]
         public IActionResult Update(int id, string TeacherFName, string TeacherLName,  string EmployeeNumber, DateTime HireDate, decimal Salary)
         {
+
+            // Error Handling on Update when trying to update a teacher that does not exist
+            Teacher ExistingTeacher = _api.FindTeacher(id);
+            if (ExistingTeacher == null || ExistingTeacher.TeacherId == 0)
+            {
+                TempData["ErrorMessage"] = "Teacher not found. Please enter a valid ID.";
+                return RedirectToAction("List");
+            }
+
+            // Error Handling on Update when the Teacher Name is empty
+            if (string.IsNullOrWhiteSpace(TeacherFName) || string.IsNullOrWhiteSpace(TeacherLName))
+            {
+                TempData["ErrorMessage"] = "First Name and Last Name cannot be empty.";
+                return RedirectToAction("Edit", new { id });
+            }
+
+            // Error Handling on Update when the Teacher Hire Date is in the future
+            if (HireDate > DateTime.Now)
+            {
+                TempData["ErrorMessage"] = "Hire Date can NOT be in the future.";
+                return RedirectToAction("Edit", new { id });
+            }
+
+            // Error Handling on Update when the Salary is less than 0
+            if (Salary < 0)
+            {
+                TempData["ErrorMessage"] = "Salary cannot be less than 0.";
+                return RedirectToAction("Edit", new { id });
+            }
+
             Teacher UpdatedTeacher = new Teacher();
 
             UpdatedTeacher.TeacherFName = TeacherFName;
