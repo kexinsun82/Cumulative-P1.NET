@@ -104,5 +104,38 @@ namespace CumulativePart1.Controllers
             //direct to Views/TeacherPage/List.cshtml
             return RedirectToAction("List");
         }
+
+        // GET: TeacherPage/Edit/1 -> A webpage which asks the user to enter updated teacher information given the original teacher
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Teacher SelectedTeacher = _api.FindTeacher(id);
+            // Direct to Views/Teacher/Edit.cshtml
+            return View(SelectedTeacher);
+
+        }
+
+        // POST: /TeacherPage/Update/101 -> Shows the teacher which we had just updated
+        // Header: Content-Type: application/x-www-form-urlencoded
+        // POST DATA: ?TeacherFName=Kexin&TeacherLName=Sun&Salary=66
+        [HttpPost]
+        public IActionResult Update(int id, string TeacherFName, string TeacherLName,  string EmployeeNumber, DateTime HireDate, decimal Salary)
+        {
+            Teacher UpdatedTeacher = new Teacher();
+
+            UpdatedTeacher.TeacherFName = TeacherFName;
+            UpdatedTeacher.TeacherLName = TeacherLName;
+            UpdatedTeacher.EmployeeNumber = EmployeeNumber;
+            UpdatedTeacher.HireDate = HireDate;
+            UpdatedTeacher.Salary = Salary;
+
+            _api.UpdateTeacher(id, UpdatedTeacher);
+
+
+            // redirect to /TeacherPage/Show/{teacherid}
+            return RedirectToAction("Show", new { id = id });
+
+        }
+
     }
 }

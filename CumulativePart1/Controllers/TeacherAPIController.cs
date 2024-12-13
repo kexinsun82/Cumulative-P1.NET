@@ -30,7 +30,7 @@ namespace CumulativePart1.Controllers
         [Route(template:"ListTeachersInfo")]
         public List<Teacher> ListTeachersInfo()
         {
-            // create a empty list for the article titles
+            // create a empty list for the teacher titles
             List<Teacher> Teachers = new List<Teacher>();
 
             // create a connection to the database
@@ -214,6 +214,48 @@ namespace CumulativePart1.Controllers
                 
                 return RowsAffected;
             }
+        }
+
+        /// <summary>
+        /// This endpoint receives teacher information and updates the teacher in the database
+        /// </summary>
+        /// <returns>
+        /// The teacher resource which we updated
+        /// </returns>
+        /// <param name="TeacherId">The primary key of the teacher to update</param>
+        /// <param name="UpdateTeacher">The values to update the teacher</param>
+        /// <example>
+        /// PUT: TeacherAPI/UpdateTeacher/1
+        /// Request Header: Content-Type: application/json
+        /// Request Body:
+        /// {}
+        /// ->
+        /// {}
+        /// </example>
+        [HttpPut(template:"UpdateTeacher/{TeacherId}")]
+        public Teacher UpdateTeacher(int TeacherId, [FromBody] Teacher UpdatedTeacher)
+        {
+            //Debug.WriteLine($"The teacher Title is : {UpdatedTeacher.teacherTitle}");
+
+            string query = "update teachers set teacherfname=@TeacherFName, teacherlname=@TeacherLName, employeenumber=@EmployeeNumber, hiredate=@HireDate,salary=@Salary where teacherid=@id";
+
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand Command = Connection.CreateCommand();
+
+                Command.Parameters.AddWithValue("@TeacherFName", UpdatedTeacher.TeacherFName);
+                Command.Parameters.AddWithValue("@TeacherLName", UpdatedTeacher.TeacherLName);
+                Command.Parameters.AddWithValue("@EmployeeNumber", UpdatedTeacher.EmployeeNumber);
+                Command.Parameters.AddWithValue("@HireDate", UpdatedTeacher.HireDate);
+                Command.Parameters.AddWithValue("@Salary", UpdatedTeacher.Salary);
+                Command.Parameters.AddWithValue("@id", TeacherId);
+
+                Command.CommandText = query;
+                Command.ExecuteNonQuery();
+            }
+
+            return FindTeacher(TeacherId);
         }
 
     }

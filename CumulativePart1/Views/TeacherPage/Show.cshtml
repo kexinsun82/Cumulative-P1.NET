@@ -32,10 +32,14 @@
       <div class="Info-container">
         <h1 class="title">@Model.TeacherFName @Model.TeacherLName</h1>
         <div class="inner">
+
           <a href="/TeacherPage/DeleteConfirm/@Model.TeacherId">Delete</a>
+          <a href="/TeacherPage/Edit/@Model.TeacherId">Edit</a>
+
           <h2>Employee Number: @Model.EmployeeNumber</h2>
           <h2>Hire Date: @Model.HireDate.ToString("yyyy-M-d")</h2>
           <h2>Salary: @Model.Salary</h2>
+          
         </div>
       </div>
     </body>
